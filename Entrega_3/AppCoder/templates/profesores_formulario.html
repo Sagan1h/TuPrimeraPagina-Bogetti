@@ -1,0 +1,54 @@
+{% extends "C:\Users\nicol\OneDrive\Documentos\Cursos\Python\Pre-entrega3\Entrega_3\AppCoder\templates\padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar Profesor</title>
+</head>
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+
+                    <h1 class="mb-5">Bienvenidos Profesores</h1>
+
+                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <h1>Formulario - Agregar Profesor</h1>
+    {% if mi_formulario3.errors %}
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <form action="/profesor/" method="post">{% csrf_token %}
+        <table>
+            {{mi_formulario3.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+{% endblock contenidoQueCambia %}
