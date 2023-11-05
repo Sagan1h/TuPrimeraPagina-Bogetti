@@ -32,11 +32,11 @@
 
 <p>Estamos buscando el: {{camada}}</p>
 
-{% if cursos %}
+{% if curso %}
 <ul>
-{% for cursos in cursos %}
-    <li>{{curso.nombre}}</li>
-    <li>{{curso.camada}}</li>
+{% for curso in curso %}
+    <li>{{cursos.nombre}}</li>
+    <li>{{cursos.camada}}</li>
 {% endfor %}
 </ul>
 {% endif %}
