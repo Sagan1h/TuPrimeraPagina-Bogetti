@@ -60,13 +60,13 @@ def entregables_formulario(request):
         return render(request, "entregables_formulario.html", {"mi_formulario4" : mi_formulario4})
 
 def buscar_camada(reques):
-    return render(reques, "inicio.html")
+    return render(reques, "buscar_camada.html")
 
 def buscar(request):
     if request.GET["camada"]:
         camada = request.GET["camada"]
-        cursos = Curso.objects.filter(camada_icontains=camada)
+        cursos = Curso.objects.filter(camada__icontains=camada)
         return render(request, "resultadosBusqueda.html", {"cursos" : cursos}, {"camada" : camada})
     else:
-        respuesta = "No enviaste datos."
+        respuesta = ("No enviaste datos.")
         return HttpResponse(respuesta)

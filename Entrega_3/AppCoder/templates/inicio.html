@@ -34,16 +34,5 @@
     <input type="number" name="camada" id="camada">
     <input type="submit" value="buscar">
 </form>
-<p>Estamos buscando el: {{camada}}</p>
-
-{% if cursos %}
-<ul>
-{% for cursos in cursos %}
-    <li>{{cursos.nombre}}</li>
-    <li>{{cursos.camada}}</li>
-{% endfor %}
-</ul>
-{% endif %}
-
 
 {% endblock contenidoQueCambia %}
