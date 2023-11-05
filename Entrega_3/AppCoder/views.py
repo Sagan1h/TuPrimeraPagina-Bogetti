@@ -63,8 +63,8 @@ def buscar_camada(reques):
     return render(reques, "inicio.html")
 
 def buscar(request):
-    if request.GET.get("camada"):
-        camada = request.GET.get("camada")
+    camada = request.GET.get("camada")
+    if camada:
         cursos = Curso.objects.filter(camada__icontains=camada)
         return render(request, "resultadosBusqueda.html", {"cursos" : cursos}, {"camada" : camada})
     else:
