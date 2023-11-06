@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import Curso, Estudiante, Profesor, Entregable
 from .forms import CursoFormulario, EstudianteFormulario, ProfesorFormulario, EntregableFormulario
 
@@ -59,13 +59,10 @@ def entregables_formulario(request):
         mi_formulario4 = EntregableFormulario()
         return render(request, "entregables_formulario.html", {"mi_formulario4" : mi_formulario4})
 
-def buscar_camada(reques):
-    return render(reques, "inicio.html")
-
 def buscar(request):
     camada = request.GET.get("camada")
     if camada:
         cursos = Curso.objects.filter(camada__icontains=camada)
-        return render(request, "resultadosBusqueda.html", {"cursos" : cursos}, {"camada" : camada})
+        return render(request, "resultadosBusqueda.html", {"cursos" : cursos, "camada" : camada})
     else:
         return render(request, "datosInvalidos.html")

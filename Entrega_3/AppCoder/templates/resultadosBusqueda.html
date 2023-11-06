@@ -1,4 +1,4 @@
-{% extends "C:\Users\nicol\OneDrive\Documentos\Cursos\Python\Pre-entrega3\Entrega_3\AppCoder\templates\padre.html" %}
+{% extends "./padre.html" %}
 
 {% load static %}
 
@@ -35,7 +35,7 @@
 {% if cursos %}
 <ul>
 {% for cursos in cursos %}
-    <li>{{curso.nombre}}</li>
+    <li>{{cursos.nombre}}</li>
     <li>{{cursos.camada}}</li>
 {% endfor %}
 </ul>
